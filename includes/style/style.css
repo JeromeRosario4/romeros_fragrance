@@ -1,0 +1,486 @@
+/* Global Reset and Basic Layout */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Georgia, "Times New Roman", Times, serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    flex-direction: column;
+    background: linear-gradient(135deg, #ffffff, #b3d1f2, #a3a1f7, #c3a6e5); /* Diagonal White, Light Blue, Light Indigo, Light Purple Gradient */
+}
+
+/* Full-Width Banner */
+.header-banner {
+    width: 100%;
+    height: 200px; /* Adjust height as needed */
+    background-image: url('your-banner-image.jpg'); /* Replace with your banner image URL */
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Sticky Header */
+.header-sticky {
+    position: sticky;
+    top: 0;
+    background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent background */
+    z-index: 1000; /* Ensures the header stays on top */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 15px 0;
+}
+
+/* Header */
+h1 {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 3em;
+    color: #00008B; /* Dark blue color for the header */
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+/* Sub-Header */
+h2, h3 {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 2em;
+    color: #00008B; /* Dark purple only for Products header */
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+
+/* Hover effect for products */
+.product:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    border-color: #8E6BCC;  /* Purple border on hover */
+    background-color: #E3D7FF;  /* Slightly lighter purple background */
+}
+
+/* Product List Container */
+.product-list {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* 5 equal columns */
+    gap: 20px; /* Space between each product */
+    max-width: 1200px; /* Maximum width for large screens */
+    padding: 20px; /* Padding around the container */
+    margin-left: auto;
+    margin-right: auto;
+    transition: all 0.3s ease;
+    background-color: #f4f4f4; /* Light background for the container */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Soft shadow around the container */
+}
+
+
+/* Product Item Styling */
+.product {
+    background-color: #CDC1FF; /* Background color for product items */
+    padding: 15px; /* Space inside each product item */
+    border: 1px solid #9E7FEF; /* Border with a purple color */
+    color: #000; /* Black text color */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Light shadow for 3D effect */
+    border-radius: 8px; /* Rounded corners for product cards */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+    text-align: center;
+    animation: fadeIn 0.6s ease-in-out; /* Fade-in animation for each product */
+}
+
+/* Product Title */
+.product h2 {
+    margin: 10px 0;
+    font-size: 1.2em;
+    color: #00008B; /* Dark blue for product title */
+}
+
+/* Product Description */
+.product p {
+    font-style: italic;
+    font-size: 0.9em;
+    margin-bottom: 8px;
+    color: #000; /* Black text for product descriptions */
+    height: 40px;
+    overflow: hidden;
+    margin-top: 5px;
+}
+
+/* Specific "Add to Cart" Button Style */
+.product button {
+    background-color: #5B47D1; /* Purple background for "Add to Cart" button */
+    min-width: 100px;
+    border: none;
+    padding: 10px;
+    display: inline-block;
+    text-align: center;
+    cursor: pointer;
+    text-decoration: none;
+    color: #FFF; /* White text */
+    min-height: 15px;
+    font: 12px/15px Arial, Helvetica, sans-serif;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.26);
+    border-radius: 3px;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.product button:hover {
+    background-color: #8360E3; /* Lighter purple on hover */
+}
+
+/* Cart Sidebar Styles */
+ul.shopping-cart {
+    position: fixed;
+    top: 100px;
+    right: 0;
+    background-color: #F0E6FF;
+    padding: 10px;
+    min-width: 250px;
+    list-style: none;
+    font-size: 0.8em;
+    border: 1px solid #E0D1FF;
+    color: #000; /* Black text */
+}
+
+ul.shopping-cart .cart-itm {
+    margin-bottom: 10px;
+    border-bottom: 1px solid #C5B2FF;
+    padding-bottom: 8px;
+}
+
+ul.shopping-cart .cart-itm:last-child {
+    border-bottom: none;
+}
+
+ul.shopping-cart .cart-itm .remove-itm {
+    float: right;
+    font-size: 1.5em;
+}
+
+ul.shopping-cart .cart-itm .remove-itm a {
+    text-decoration: none;
+    color: #8A6DF1;
+}
+
+.cart-total-text a {
+    float: right;
+}
+
+/* Cart View Table Styles */
+.cart-view-table-front {
+    font-size: 0.7em;
+    position: fixed;
+    right: 10px;
+    max-width: 350px;
+    font-family: Arial;
+    color: #000; /* Black text */
+}
+
+.cart-view-table-front h3 {
+    text-align: center;
+    padding: 0;
+    margin: 0px 0px 6px 0px;
+    color: #4F3DA7;
+}
+
+.cart-view-table-front, .cart-view-table-back {
+    max-width: 700px;
+    background-color: #FFFFFF;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+    box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.12);
+    border: 1px solid #E0D1FF;
+}
+
+.cart-view-table-front table th, .cart-view-table-back table th {
+    text-align: left;
+    color: #4F3DA7;
+}
+
+.cart-view-table-front table thead, .cart-view-table-back table thead {
+    background-color: #D0B7FF;
+}
+
+.cart-view-table-front table tbody tr.even, .cart-view-table-back table tbody tr.even {
+    background-color: #F2E9FF;
+}
+
+.cart-view-table-front table tbody tr.odd, .cart-view-table-back table tbody tr.odd {
+    background-color: #F0E6FF;
+}
+
+.cart-view-table-front button, .cart-view-table-front .button, .cart-view-table-back button, .cart-view-table-back .button {
+    margin: 10px 1px;
+    float: right;
+    background-color: #5B47D1;
+    color: #FFF;
+}
+
+/* General Container Styles */
+/* Profile Section */
+.profile-section {
+    display: flex;
+    justify-content: center;
+    padding: 30px;
+    background-color: #F7F8FC;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    color: #000; /* Black text */
+}
+
+/* Profile Picture Card */
+.profile-picture {
+    background-color: #F0E6FF;
+    border-radius: 10px;
+    width: 400px;
+    padding: 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    color: #000; /* Black text */
+}
+
+.profile-picture .card-header {
+    background-color: #5B47D1;
+    color: #fff;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 10px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.profile-picture .card-body {
+    text-align: center;
+    padding: 20px;
+}
+
+.profile-picture img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin-bottom: 15px;
+}
+
+.profile-picture button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #fff;
+    background-color: #5B47D1;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.profile-picture button:hover {
+    background-color: #8360E3;
+}
+
+/* Account Details Card */
+.profile-details {
+    flex: 1 1 500px;
+    background-color: #F0E6FF;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    color: #000; /* Black text */
+}
+
+/* Logo styling in the header */
+.navbar-brand {
+    display: flex; /* Enable flexbox for horizontal alignment */
+    align-items: center; /* Vertically center the logo and text */
+}
+
+/* Logo inside navbar */
+.navbar-brand .logo {
+    height: 50px; /* Adjust logo height to match the size of the shop name */
+    width: auto;  /* Maintain aspect ratio */
+    margin-right: 15px; /* Space between the logo and shop name */
+}
+
+/* Navbar adjustments */
+.navbar {
+    padding: 10px 20px;
+    background-color: transparent; /* Remove background for a more elegant look */
+    box-shadow: none;
+}
+
+.navbar-nav .nav-link {
+    color: #00008B; /* Dark blue text for nav items */
+    font-family: 'Roboto', sans-serif; /* Example font */
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #5B47D1; /* Purple on hover */
+}
+
+.navbar-toggler-icon {
+    background-color: #5B47D1; /* Make the toggler icon purple */
+}
+
+/* Adding Margin to Content Below the Header */
+.main-content {
+    margin-top: 250px; /* Adjust this based on your header height */
+}
+
+/* Resize Product Image to be smaller */
+.product img {
+    width: 220px;  /* Set the width to 150px */
+    height: 200px;  /* Set the height to 100px */
+    object-fit: cover; /* Ensures the image maintains aspect ratio while filling the area */
+}
+
+/* Modal Styles */
+.product-popup {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Black background with opacity */
+    padding-top: 60px;
+    overflow: auto; /* Enable scrolling if needed */
+}
+
+.product-popup-content {
+    background-color: #fff;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 700px; /* Limit the width of the modal */
+    max-height: 80vh; /* Set max height of the modal */
+    overflow-y: auto; /* Enable vertical scrolling if content overflows */
+    position: relative; /* For positioning the close button */
+}
+/* Modal Close Button */
+.close {
+    color: #aaa;
+    font-size: 30px;
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    right: 25px;
+    padding: 0 10px;
+    background: transparent;
+    border: none;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Swiper Styles */
+.swiper-container {
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.swiper-slide img {
+    width: 100%; /* Ensure images fill the swiper container */
+    max-height: 400px; /* Restrict image height to avoid overflow */
+    object-fit: cover; /* Maintain aspect ratio */
+    object-position: center center; /* Center the image within its container */
+}
+
+/* Additional image styling for modal or image display */
+.img-thumbnail {
+    width: 100%; /* Ensure image fills the container */
+    max-width: 300px; /* Max width for the image */
+    max-height: 500px; /* Max height for the image */
+    object-fit: contain; /* Ensure the entire image fits without distortion */
+    object-position: center center; /* Keep the image centered */
+}
+
+/* Standard image styling in the form */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+
+/* Reviews Section */
+#popup-reviews {
+    margin-top: 20px;
+    max-height: 300px; /* Limit the height of the reviews section */
+    overflow-y: auto; /* Enable scrolling for reviews */
+}
+
+.review {
+    margin-bottom: 15px;
+}
+
+.review p {
+    margin: 5px 0;
+}
+
+/* Rating Stars */
+.star-rating {
+    color: gold;
+}
+
+#popup-reviews {
+    margin-top: 20px;
+    border-top: 1px solid #ddd;
+    padding-top: 15px;
+}
+
+.review p {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.review p strong {
+    margin-right: 5px;
+}
+
+.review small {
+    display: block;
+    color: gray;
+    font-size: 0.9rem;
+}
+
+
+.img-account-profile {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+  }
+  
+  .btn-blue {
+    background-color: #6a0dad;  /* Purple color */
+    color: white;
+    border: none;
+}
+  
+.btn-blue:hover {
+    background-color: #5a0d9a;  /* Slightly darker purple on hover */
+}
+  
+  
